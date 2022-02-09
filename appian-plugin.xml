@@ -1,0 +1,62 @@
+<appian-plugin name="kafka-tools" key="com.appiancorp.cs.plugin.kafka">
+
+  <plugin-info>
+    <description>Kafka Tools</description>
+    <vendor name="Appian Corporation" url="http://www.appian.com" />
+    <version>1.0.1</version>
+    <application-version min="18.2.0" />
+  </plugin-info>
+
+  <enumeration key="kafkaSecurityProtocols" type="3">
+    <items>
+      <item>
+        <label>PLAINTEXT</label>
+        <detail>PLAINTEXT</detail>
+        <value>PLAINTEXT</value>
+      </item>
+      <item>
+        <label>SSL</label>
+        <detail>SSL</detail>
+        <value>SSL</value>
+      </item>
+      <item>
+        <label>SASL_PLAINTEXT</label>
+        <detail>SASL_PLAINTEXT</detail>
+        <value>SASL_PLAINTEXT</value>
+      </item>
+      <item>
+        <label>SASL_SSL</label>
+        <detail>SASL_SSL</detail>
+        <value>SASL_SSL</value>
+      </item>
+    </items>
+  </enumeration>
+
+  <!-- Note the values use underscores instead of dashes so they can be used in a Java Enum -->
+  <enumeration key="kafkaSaslMechanism" type="3">
+    <items>
+      <item>
+        <label>PLAIN</label>
+        <detail>PLAIN</detail>
+        <value>PLAIN</value>
+      </item>
+      <item>
+        <label>SCRAM-SHA-256</label>
+        <detail>SCRAM-SHA-256</detail>
+        <value>SCRAM_SHA_256</value>
+      </item>
+      <item>
+        <label>SCRAM-SHA-512</label>
+        <detail>SCRAM-SHA-512</detail>
+        <value>SCRAM_SHA_512</value>
+      </item>
+    </items>
+  </enumeration>
+
+  <smart-service name="Publish to Kafka" key="PublishToKafka"
+    class="com.appiancorp.cs.plugin.kafka.smartservice.PublishKafkaSmartService" />
+
+  <smart-service name="Consume from Kafka" key="ConsumeFromKafka"
+    class="com.appiancorp.cs.plugin.kafka.smartservice.ConsumeKafkaSmartService" />
+
+</appian-plugin>
